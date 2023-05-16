@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -92,3 +93,7 @@ p {
     text-decoration: underline;
   }
   
+
+  .attribution {
+    margin-top: 15px;
+  }

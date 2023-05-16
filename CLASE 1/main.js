@@ -46,44 +46,9 @@ recarga()
 const clickCard = document.querySelector("body div");
 clickCard.addEventListener("click",recarga);
 
-/* // Obtener el elemento en el que se producirá el clic
-const elemento = document.querySelector(".card");
 
-// Agregar el evento de escucha al elemento
-elemento.addEventListener("click", miFuncion); */
-
-// Definir la función que se ejecutará cuando se produzca el clic
 function miFuncion() {
   // Código a ejecutar cuando se produce el clic
   console.log("Se ha hecho clic en el elemento");
 }
 
-
-
-/**
- * ! con try 
- 
-const buscarPersonaje = async (nombre) => {
-  try {
-    const respuesta = await fetch(`https://api.jikan.moe/v3/search/character?q=${nombre}`);
-    const datos = await respuesta.json();
-
-    // Verificar si se encontraron resultados
-    if (datos.results.length > 0) {
-      // Acceder a los datos del primer resultado
-      const resultado = datos.results[0];
-
-      // Imprimir información del personaje
-      console.log('Nombre:', resultado.name);
-      console.log('URL de imagen:', resultado.image_url);
-      console.log('Anime:', resultado.anime[0].name);
-    } else {
-      console.log('No se encontraron resultados');
-    }
-  } catch (error) {
-    console.error('Error al realizar la búsqueda:', error);
-  }
-};
-
-// Realizar la búsqueda del personaje "Roronoa Zoro"
-buscarPersonaje('Roronoa Zoro'); */
