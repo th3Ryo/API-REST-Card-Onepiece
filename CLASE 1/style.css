@@ -66,6 +66,7 @@ p {
   .card__descr {
     color: var(--font-color);
     max-height: 155px;
+    overflow: auto
   }
   
   .svg {
