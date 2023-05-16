@@ -64,6 +64,7 @@ p {
   
   .card__descr {
     color: var(--font-color);
+    overflow: auto;
     max-height: 155px;
   }
   
