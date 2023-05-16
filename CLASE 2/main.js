@@ -13,6 +13,8 @@ const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; */
 
 
 const URL_API = "https://animechan.vercel.app/api/random/anime?title=one%20Piece";
+
+// ejemplo con query parametros https://api.jikan.moe/v4/random/characters?page=1&limit=5&q=%22sengoku%22&order_by=favorites
 // se agrega el fetch
 async function recarga() {
   const res = await fetch(URL_API);
