@@ -11,58 +11,103 @@ const querystring = [
 const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; */
 
 
+function recarga () {
 
-const URL_API = "https://animechan.vercel.app/api/random/anime?title=one%20Piece";
 
-// ejemplo con query parametros https://api.jikan.moe/v4/random/characters?page=1&limit=5&q=%22sengoku%22&order_by=favorites
-// se agrega el fetch
-async function recarga() {
-  const res = await fetch(URL_API);
-  const data = await res.json();
-      //leer la class card__title para ingresar el personaje
-      const nombre = document.querySelector(".card__title");
-      console.log(data.character);
-      nombre.innerText = data.character; //agregar el nombre dentro del contenido
+  var randomNumero = [];
 
-      //leer la class card__title para ingresar el personaje
-      const frase = document.querySelector(".card__descr"); //leer elemento P
-      console.log(data.quote);
-      frase.innerText = data.quote; //agregar la frase dentro del contenido
-      personaje.nombre = encodeURIComponent(data.character);
+  function aleatorio(numero) {
+    for (let i = 0; i < numero; i++) {
+      randomNumero[i] = Math.floor(Math.random() * 100) + 1;
+    }
+  }
+  aleatorio(3);
 
-      //url para imagen 
-      /**
-       * !metodo sugerido para meter los query */
-      const URL_API1= [
-        `https://api.jikan.moe/v4/characters?q=`,
-        personaje.nombre,
-        `&filter[manga]=13`,
-      ];
-      //`https://api.jikan.moe/v4/characters?q=${personaje.nombre}&filter[manga]=13`;
-      console.log(URL_API1);
+  randomNumero = randomNumero.join(",");
+  const URL_API1 = `https://rickandmortyapi.com/api/character/${randomNumero}`;
 
-      image_url();
-      async function image_url() {
-        fetch(URL_API1)
-        const res2 = await fetch(URL_API1);
-        const data2 = await res2.json();
-          
-            const img = document.querySelector(".card__img img"); //leer elemento P
-            console.log(data2.data);
-            personaje.urlImg = data2.data[0].images.webp.image_url;
+  //`https://api.jikan.moe/v4/characters?q=${personaje.nombre}&filter[manga]=13`;
+  console.log(URL_API1);
 
-            const linkPagina = document.querySelector(".link.pagina");
-            personaje.urlPagina = data2.data[0].url;
-            console.log(personaje.urlPagina);
+  /**
+   *! codigo mejorado se conservan etiquetas 
+    async function image_url() {
+    fetch(URL_API1);
+    const res2 = await fetch(URL_API1);
+    const data2 = await res2.json();
 
-            img.src = personaje.urlImg;
-            linkPagina.href = personaje.urlPagina;
-      }
-    };
+    const nombre1 = document.querySelector(".card__title.nombre1"); //leer elemento P nombre
+    const nombre2 = document.querySelector(".card__title.nombre2"); //leer elemento P nombre
+    const nombre3 = document.querySelector(".card__title.nombre3"); //leer elemento P nombre
 
-recarga()
+    const img1 = document.querySelector(".img1"); //leer elemento P imagen
+    const img2 = document.querySelector(".img2"); //leer elemento P imagen
+    const img3 = document.querySelector(".img3"); //leer elemento P imagen
+
+    const linkPagina1 = document.querySelector(".link.url1");
+    const linkPagina2 = document.querySelector(".link.url2");
+    const linkPagina3 = document.querySelector(".link.url3");
+
+    console.log(data2);
+    //personaje.urlImg = data2.data[0].images.webp.image_url;
+    nombre1.innerText = data2[0].name;
+    nombre2.innerText = data2[1].name;
+    nombre3.innerText = data2[2].name;
+
+    img1.src = data2[0].image;
+    img2.src = data2[1].image;
+    img3.src = data2[2].image;
+
+    linkPagina1.href = data2[0].url;
+    linkPagina2.href = data2[1].url;
+    linkPagina3.href = data2[2].url;
+
+  }
+  image_url()*/
+
+
+  async function image_url() {
+    const res = await fetch(URL_API1);
+    const data = await res.json();
+    //lee todos las clases card por tener el all en este caso 3
+    const cards = document.querySelectorAll(".card");
+    console.log(cards)
+    for (let i = 0; i < cards.length; i++) {
+      //crea una costante card donde almacena el valor de cards en la posicion 1
+      const card = cards[i];
+      console.log(card)
+      //lee lo que tiene el titulo de card
+      const nombre = card.querySelector(".card__title");
+      //lee lo que tiene la img
+      const img = card.querySelector(".card__img img");
+       //lee lo que tiene de link
+      const linkPagina = card.querySelector(".card__links .link");
+      
+      console.log(data[i].name)
+      //asigna el nombre en el p mediante el inner
+      nombre.innerText = data[i].name;
+      console.log(data[i].image)
+      //asigna el link de la img
+      img.src = data[i].image;
+      console.log(data[i].url)
+      //asigna el link de la API
+      linkPagina.href = data[i].url;
+    }
+  }
+  
+  image_url();
+  
+ 
+  } 
+
+  
+  
+
+  
+recarga();
+
 const clickCard = document.querySelector("body div");
-clickCard.addEventListener("click",recarga);
+clickCard.addEventListener("click", recarga);
 
 /* // Obtener el elemento en el que se producirá el clic
 const elemento = document.querySelector(".card");
@@ -75,8 +120,6 @@ function miFuncion() {
   // Código a ejecutar cuando se produce el clic
   console.log("Se ha hecho clic en el elemento");
 }
-
-
 
 /**
  * ! con try 
@@ -105,3 +148,5 @@ const buscarPersonaje = async (nombre) => {
 
 // Realizar la búsqueda del personaje "Roronoa Zoro"
 buscarPersonaje('Roronoa Zoro'); */
+
+
