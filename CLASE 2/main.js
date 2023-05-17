@@ -1,5 +1,4 @@
 const personaje = [];
-
 /**
  * !sugerencia para agregar los queryparametres
 const querystring = [
@@ -19,7 +18,7 @@ const URL = [
 const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; */
 
 
-function recarga () {
+function recargarPersonajes () {
 
 
   var randomNumero = [];
@@ -112,10 +111,21 @@ function recarga () {
   
 
   
-recarga();
+  recargarPersonajes();
 
-const clickCard = document.querySelector("body div");
-clickCard.addEventListener("click", recarga);
+
+
+
+
+// Obtener todas las imágenes con la clase "card__img"
+const clickCard = document.querySelectorAll(".card__img");
+
+// Recorrer todas las imágenes y agregar un evento de clic a cada una
+clickCard.forEach(clickCard => {
+  // Llamar a tu función aquí, tambien podria ser un arrow funtion si fuese mas corta
+  clickCard.addEventListener('click', recargarPersonajes);
+});
+//clickCard.addEventListener("click", );
 
 /* // Obtener el elemento en el que se producirá el clic
 const elemento = document.querySelector(".card");
