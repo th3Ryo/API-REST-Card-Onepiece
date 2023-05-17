@@ -8,6 +8,14 @@ const querystring = [
   '&order=Desc',
 ].join('');
 
+
+
+const URL = [
+    'https://api.thecatapi.com/v1/images/search',
+    '?limit=5',
+    '&order=Asc',
+    `&api_key=${API_KEY}`,
+].join('');
 const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; */
 
 
@@ -18,7 +26,7 @@ function recarga () {
 
   function aleatorio(numero) {
     for (let i = 0; i < numero; i++) {
-      randomNumero[i] = Math.floor(Math.random() * 100) + 1;
+      randomNumero[i] = Math.floor(Math.random() * 825) + 1;
     }
   }
   aleatorio(3);

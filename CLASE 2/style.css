@@ -1,13 +1,20 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
+    background-color: blueviolet;
+
   }
 
 p {
     margin: 0px;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
 }
 
 .card {
@@ -18,7 +25,7 @@ p {
     border-radius: 20px;
     background: var(--bg-color);
     box-shadow: -9px 9px 18px #5a5a5a,
-                9px -9px 18px #ffffff;
+                9px -9px 18px #75d41d;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -38,7 +45,6 @@ p {
     height: 90%;
     object-fit: cover;
     border-radius: 20px 20px 0 0;
-    background-color: blueviolet;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,6 +83,7 @@ p {
     display: flex;
     justify-content: space-around;
     align-self: flex-end;
+    
   }
   
   .card__links .link {
@@ -90,3 +97,15 @@ p {
     text-decoration: underline;
   }
   
+  button {
+    border: none;
+    outline: none;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  button .svg {
+    width: 30px;
+    height: 30px;
+  }
