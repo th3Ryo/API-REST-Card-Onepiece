@@ -15,7 +15,17 @@ const URL = [
     '&order=Asc',
     `&api_key=${API_KEY}`,
 ].join('');
-const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; */
+const URL = `https://api.thecatapi.com/v1/images/search${querystring}`; 
+
+
+const API_URL_FAVOURITES = [
+  "https://api.thecatapi.com/v1/favourites",
+  "?limit=2",
+  "&order=Asc",
+  `&api_key=${API_KEY}`,
+].join("");``
+
+*/
 
 
 function recargarPersonajes () {
